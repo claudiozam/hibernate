@@ -12,15 +12,21 @@ public class Principal {
 		
 		Transaction transaction = session.beginTransaction();
 		
-		Producto producto1 = new Producto("Ejemplo producto 1", 5000.0);
+		//Producto producto1 = new Producto("Ejemplo producto 1", 5000.0);
 		
-		session.save(producto1);
+		//session.save(producto1);
+
+		//System.out.println("El id generado del producto es: " + producto1.getId());
+
+		Long idBuscar = 1L;
+		Producto productoRecuperado = session.get(Producto.class, idBuscar);
+		System.out.println(productoRecuperado);
 		
-		System.out.println("El id generado del producto es: " + producto1.getId());
 		
 		transaction.commit();
 		session.close();
 		
+		HibernateUtil.close();
 		
 		
 	}
