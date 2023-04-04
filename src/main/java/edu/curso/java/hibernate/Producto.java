@@ -12,7 +12,16 @@ public class Producto {
 	private Long id;
 	private String nombre;
 	private Double precio;
+	private String descripcion;
 	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public Producto() {
 		
 	}

@@ -5,16 +5,22 @@
 <hibernate-configuration>
  <session-factory>
   
+  	<!-- CONFIG DE BASE DE DATOS!!!!  -->
     <property name="connection.url">jdbc:mysql://localhost:3306/ejemplo_hibernate?useSSL=false</property>
     <property name="connection.username">root</property>
     <property name="connection.password"></property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
   
+  	<!-- ES PARA MOSTRAR EL SQL EN LA CONSOLA!!!! -->
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
+
+
+  	<!-- ES PARA MOSTRAR QUE ME CREE LAS TABLAS AUTOMATICAMENTE!!!! -->    
     <property name="hbm2ddl.auto">update</property>
-  
+    
+  	<!-- ES PARA HACER EL MAPPING -->    
     <mapping class="edu.curso.java.hibernate.Producto" />
  
 </session-factory>
