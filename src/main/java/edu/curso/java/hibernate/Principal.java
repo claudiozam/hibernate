@@ -42,12 +42,15 @@ public class Principal {
 		session.save(deposito1);
 		session.save(deposito2);
 
-		Long idCategoria = 6L;
-		CategoriaProducto categoriaProducto = session.get(CategoriaProducto.class, idCategoria);
+		//Long idCategoria = 6L;
+		//CategoriaProducto categoriaProducto = session.get(CategoriaProducto.class, idCategoria);
+		
+		CategoriaProducto categoriaProductoCascada = new CategoriaProducto();
+		categoriaProductoCascada.setNombre("General");
 		
 		//ALTA
 		Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
-		producto1.setCategoriaProducto(categoriaProducto);
+		producto1.setCategoriaProducto(categoriaProductoCascada);
 		producto1.getDepositos().add(deposito1);
 		producto1.getDepositos().add(deposito2);
 		producto1.getProveedores().add(proveedor1);
