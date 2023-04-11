@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -24,6 +25,7 @@ public class Producto {
 	private CategoriaProducto categoriaProducto;
 	
 	@OneToMany
+	@JoinColumn(name = "producto_id")
 	private List<Deposito> depositos = new ArrayList<Deposito>();
 	
 	

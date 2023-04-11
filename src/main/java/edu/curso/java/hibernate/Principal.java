@@ -43,15 +43,16 @@ public class Principal {
 
 		
 		//CONSULTA POR ID
-		Long idBuscar = 10L;
-		Producto productoRecuperado = session.get(Producto.class, idBuscar);
-		System.out.println(productoRecuperado);
+		//Long idBuscar = 10L;
+		//Producto productoRecuperado = session.get(Producto.class, idBuscar);
+		//System.out.println(productoRecuperado);
 		//CategoriaProducto categoriaProducto = productoRecuperado.getCategoriaProducto();
 		//System.out.println(categoriaProducto);
 
-		for(Deposito deposito : productoRecuperado.getDepositos()) {
-			System.out.println(deposito);
-		}
+		//for(Deposito deposito : productoRecuperado.getDepositos()) {
+		//	System.out.println(deposito);
+		//}
+		
 		//UPDATE
 		//Long idBuscar = 1L;
 		//Producto productoRecuperado = session.get(Producto.class, idBuscar);
