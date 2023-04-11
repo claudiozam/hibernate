@@ -3,6 +3,7 @@ package edu.curso.java.hibernate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Producto {
@@ -14,6 +15,17 @@ public class Producto {
 	private Double precio;
 	private String descripcion;
 	
+	@ManyToOne
+	private CategoriaProducto categoriaProducto;
+	
+	public CategoriaProducto getCategoriaProducto() {
+		return categoriaProducto;
+	}
+
+	public void setCategoriaProducto(CategoriaProducto categoriaProducto) {
+		this.categoriaProducto = categoriaProducto;
+	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}

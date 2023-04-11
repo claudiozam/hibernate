@@ -16,10 +16,15 @@ public class Principal {
 		Transaction transaction = session.beginTransaction();
 		
 		
+		CategoriaProducto categoriaProducto = new CategoriaProducto();
+		categoriaProducto.setNombre("General");
+		session.save(categoriaProducto);
+		
 		//ALTA
-		//Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
-		//session.save(producto1);
-		//System.out.println("El id generado del producto es: " + producto1.getId());
+		Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
+		producto1.setCategoriaProducto(categoriaProducto);
+		session.save(producto1);
+		System.out.println("El id generado del producto es: " + producto1.getId());
 
 		//CONSULTA POR ID
 		//Long idBuscar = 1L;
@@ -40,12 +45,12 @@ public class Principal {
 		//productoRecuperado.setNombre("Ejemplo producto 1 con update");
 		//session.delete(productoRecuperado);
 		
-		Query<Producto> consultaProductos = session.createQuery("from Producto as p order by p.nombre", Producto.class);
-		List<Producto> productos = consultaProductos.list();
+		//Query<Producto> consultaProductos = session.createQuery("from Producto as p order by p.nombre", Producto.class);
+		//List<Producto> productos = consultaProductos.list();
 		
-		for (Producto p : productos) {
-			System.out.println(p);
-		}
+		//for (Producto p : productos) {
+		//	System.out.println(p);
+		//}
 		
 		transaction.commit();
 		session.close();
