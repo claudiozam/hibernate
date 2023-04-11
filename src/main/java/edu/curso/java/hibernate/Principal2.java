@@ -17,12 +17,24 @@ public class Principal2 {
 		
 		Query<Producto> consultaProductos = session.createQuery("from Producto as p where p.precio > :precio order by p.nombre ", Producto.class);
 		consultaProductos.setParameter("precio", 2000.0);
-	
+		
 		List<Producto> productos = consultaProductos.list();
 		
 		for (Producto p : productos) {
 			System.out.println(p);
 		}
+
+		
+		Query<Producto> consultaProductosPorCategoria = session.createQuery("from Producto as p where p.categoriaProducto.id = :idCategoria order by p.nombre ", Producto.class);
+		consultaProductosPorCategoria.setParameter("idCategoria", 6L);
+		
+		productos = consultaProductosPorCategoria.list();
+		
+		for (Producto p : productos) {
+			System.out.println(p);
+		}
+		
+		
 		
 		transaction.commit();
 		session.close();
