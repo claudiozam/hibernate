@@ -1,9 +1,14 @@
 package edu.curso.java.hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Producto {
@@ -15,9 +20,21 @@ public class Producto {
 	private Double precio;
 	private String descripcion;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private CategoriaProducto categoriaProducto;
 	
+	@OneToMany
+	private List<Deposito> depositos = new ArrayList<Deposito>();
+	
+	
+	public List<Deposito> getDepositos() {
+		return depositos;
+	}
+
+	public void setDepositos(List<Deposito> depositos) {
+		this.depositos = depositos;
+	}
+
 	public CategoriaProducto getCategoriaProducto() {
 		return categoriaProducto;
 	}

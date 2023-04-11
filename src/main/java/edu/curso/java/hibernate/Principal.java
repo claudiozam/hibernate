@@ -16,20 +16,23 @@ public class Principal {
 		Transaction transaction = session.beginTransaction();
 		
 		
-		CategoriaProducto categoriaProducto = new CategoriaProducto();
-		categoriaProducto.setNombre("General");
-		session.save(categoriaProducto);
-		
+		//CategoriaProducto categoriaProducto = new CategoriaProducto();
+		//categoriaProducto.setNombre("General");
+		//session.save(categoriaProducto);
+		//Long idCategoria = 6L;
+		//CategoriaProducto categoriaProducto = session.get(CategoriaProducto.class, idCategoria);
 		//ALTA
-		Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
-		producto1.setCategoriaProducto(categoriaProducto);
-		session.save(producto1);
-		System.out.println("El id generado del producto es: " + producto1.getId());
+		//Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
+		//producto1.setCategoriaProducto(categoriaProducto);
+		//session.save(producto1);
+		//System.out.println("El id generado del producto es: " + producto1.getId());
 
 		//CONSULTA POR ID
-		//Long idBuscar = 1L;
-		//Producto productoRecuperado = session.get(Producto.class, idBuscar);
-		//System.out.println(productoRecuperado);
+		Long idBuscar = 10L;
+		Producto productoRecuperado = session.get(Producto.class, idBuscar);
+		System.out.println(productoRecuperado);
+		CategoriaProducto categoriaProducto = productoRecuperado.getCategoriaProducto();
+		System.out.println(categoriaProducto);
 
 		
 		//UPDATE

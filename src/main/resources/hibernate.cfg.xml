@@ -23,6 +23,7 @@
   	<!-- ES PARA HACER EL MAPPING -->    
     <mapping class="edu.curso.java.hibernate.Producto" />
     <mapping class="edu.curso.java.hibernate.CategoriaProducto" />
- 
+    <mapping class="edu.curso.java.hibernate.Deposito" />
+     
 </session-factory>
 </hibernate-configuration>

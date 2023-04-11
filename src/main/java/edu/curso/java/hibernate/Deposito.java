@@ -5,8 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class CategoriaProducto {
-
+public class Deposito {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -17,7 +16,7 @@ public class CategoriaProducto {
 	}
 	@Override
 	public String toString() {
-		return "CategoriaProducto [id=" + id + ", nombre=" + nombre + "]";
+		return "Deposito [id=" + id + ", nombre=" + nombre + "]";
 	}
 	public void setId(Long id) {
 		this.id = id;
