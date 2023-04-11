@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -28,7 +29,18 @@ public class Producto {
 	@JoinColumn(name = "producto_id")
 	private List<Deposito> depositos = new ArrayList<Deposito>();
 	
+	@ManyToMany
+	private List<Proveedor> proveedores = new ArrayList<Proveedor>();
 	
+	
+	public List<Proveedor> getProveedores() {
+		return proveedores;
+	}
+
+	public void setProveedores(List<Proveedor> proveedores) {
+		this.proveedores = proveedores;
+	}
+
 	public List<Deposito> getDepositos() {
 		return depositos;
 	}

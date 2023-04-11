@@ -21,6 +21,18 @@ public class Principal {
 		//session.save(categoriaProducto);
 		
 		
+		Proveedor proveedor1 = new Proveedor();
+		proveedor1.setNombre("Proveedor1");
+		session.save(proveedor1);
+
+		Proveedor proveedor2 = new Proveedor();
+		proveedor2.setNombre("Proveedor2");
+		session.save(proveedor2);
+		
+		session.save(proveedor1);
+		session.save(proveedor2);
+
+		
 		Deposito deposito1 = new Deposito();
 		deposito1.setNombre("Depo1");
 
@@ -38,6 +50,9 @@ public class Principal {
 		producto1.setCategoriaProducto(categoriaProducto);
 		producto1.getDepositos().add(deposito1);
 		producto1.getDepositos().add(deposito2);
+		producto1.getProveedores().add(proveedor1);
+		producto1.getProveedores().add(proveedor2);
+	
 		session.save(producto1);
 		System.out.println("El id generado del producto es: " + producto1.getId());
 

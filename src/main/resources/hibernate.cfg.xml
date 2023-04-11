@@ -24,6 +24,7 @@
     <mapping class="edu.curso.java.hibernate.Producto" />
     <mapping class="edu.curso.java.hibernate.CategoriaProducto" />
     <mapping class="edu.curso.java.hibernate.Deposito" />
+    <mapping class="edu.curso.java.hibernate.Proveedor" />
      
 </session-factory>
 </hibernate-configuration>
