@@ -1,7 +1,7 @@
 package edu.curso.java.hibernate;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,15 +17,46 @@ public class Proveedor {
 	private String nombre;
 
 	@ManyToMany(mappedBy = "proveedores")
-	private List<Producto> productos = new ArrayList<Producto>();
+	private Set<Producto> productos = new HashSet<Producto>();
 
-	public List<Producto> getProductos() {
+
+	public Set<Producto> getProductos() {
 		return productos;
 	}
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Proveedor other = (Proveedor) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
 	public Long getId() {
 		return id;
 	}
