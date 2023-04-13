@@ -51,12 +51,28 @@ public class Principal {
 		//ALTA
 		Producto producto1 = new Producto("Ejemplo producto 4", 5000.0);
 		producto1.setCategoriaProducto(categoriaProductoCascada);
+		categoriaProductoCascada.setProducto(producto1);
+		
 		producto1.getDepositos().add(deposito1);
 		producto1.getDepositos().add(deposito2);
+
+		deposito1.setProducto(producto1);
+		deposito2.setProducto(producto1);
+		
 		producto1.getProveedores().add(proveedor1);
 		producto1.getProveedores().add(proveedor2);
-	
+		proveedor1.getProductos().add(producto1);
+		proveedor2.getProductos().add(producto1);
+		
 		session.save(producto1);
+		
+		session.update(proveedor1);
+		session.update(proveedor2);
+		session.update(deposito1);
+		session.update(deposito2);
+		session.update(categoriaProductoCascada);
+
+		
 		System.out.println("El id generado del producto es: " + producto1.getId());
 
 		
