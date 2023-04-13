@@ -25,16 +25,25 @@ public class Principal2 {
 		}
 
 		
-		Query<Producto> consultaProductosPorCategoria = session.createQuery("from Producto as p where p.categoriaProducto.id = :idCategoria order by p.nombre ", Producto.class);
-		consultaProductosPorCategoria.setParameter("idCategoria", 6L);
+		//Query<Producto> consultaProductosPorCategoria = session.createQuery("from Producto as p where p.categoriaProducto.id = :idCategoria order by p.nombre ", Producto.class);
+		//consultaProductosPorCategoria.setParameter("idCategoria", 6L);
 		
+		Query<Producto> consultaProductosPorCategoria = session.createQuery("from Producto as p where p.categoriaProducto.nombre like :nombreCategoria order by p.nombre ", Producto.class);
+		consultaProductosPorCategoria.setParameter("nombreCategoria", "%general%");		
 		productos = consultaProductosPorCategoria.list();
 		
 		for (Producto p : productos) {
 			System.out.println(p);
 		}
 		
-		
+
+		// select p.depositos from Producto as p where p.id = :idProducto"
+		Query<Deposito> consultaDepositos = session.createQuery("select d from Producto as p inner join p.depositos as d where p.id = :idProducto", Deposito.class);
+		consultaDepositos.setParameter("idProducto", 10L);		
+		List<Deposito> despositos = consultaDepositos.getResultList();
+		for (Deposito deposito : despositos) {
+			System.out.println(deposito);
+		}
 		
 		transaction.commit();
 		session.close();

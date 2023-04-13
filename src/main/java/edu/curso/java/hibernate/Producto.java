@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+//@Table(name = "Productos")
 public class Producto {
 
 	@Id
@@ -21,13 +25,17 @@ public class Producto {
 	private Long id;
 	private String nombre;
 	private Double precio;
+	
+	//@Column(name = "descripcion_completa", length = 2000)
 	private String descripcion;
 	
+	//@OneToOne
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@JoinColumn(name = "xxxxxxxx")
 	private CategoriaProducto categoriaProducto;
 	
-	@OneToMany
-	@JoinColumn(name = "producto_id")
+	@OneToMany(mappedBy = "producto")
+	//@JoinColumn(name = "producto_id")
 	private List<Deposito> depositos = new ArrayList<Deposito>();
 	
 	@ManyToMany

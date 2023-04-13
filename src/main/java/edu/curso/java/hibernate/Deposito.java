@@ -3,6 +3,7 @@ package edu.curso.java.hibernate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Deposito {
@@ -10,6 +11,9 @@ public class Deposito {
 	@GeneratedValue
 	private Long id;
 	private String nombre;
+	
+	@ManyToOne
+	private Producto producto;
 	
 	public Long getId() {
 		return id;

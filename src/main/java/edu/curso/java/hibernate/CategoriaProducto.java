@@ -3,6 +3,7 @@ package edu.curso.java.hibernate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CategoriaProducto {
@@ -11,6 +12,17 @@ public class CategoriaProducto {
 	@GeneratedValue
 	private Long id;
 	private String nombre;
+	
+	@OneToOne(mappedBy = "categoriaProducto")
+	private Producto producto;
+	
+	public Producto getProducto() {
+		return producto;
+	}
+	
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
 	
 	public Long getId() {
 		return id;
