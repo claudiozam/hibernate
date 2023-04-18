@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 public class Principal3 {
@@ -74,7 +75,12 @@ public class Principal3 {
 		
 		System.out.println("---------------------------");
 		
-		
+		NativeQuery<Producto> consultaNativa = session.createNativeQuery("select id, nombre, precio from Producto");
+		consultaNativa.addEntity(Producto.class);
+		List<Producto> productosNativos = consultaNativa.getResultList();
+		for (Producto p : productosNativos) {
+			System.out.println(p);
+		}
 		
 		transaction.commit();
 		session.close();
